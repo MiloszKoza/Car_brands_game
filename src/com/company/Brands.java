@@ -4,6 +4,10 @@ import java.util.ArrayList;
 
 public class Brands {
 
+
+
+    // Creating an ArrayList containing brands for the game
+
     ArrayList <String> brandslist = new ArrayList<String>();
 
     {
