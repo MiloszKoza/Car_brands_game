@@ -112,34 +112,6 @@ public class Pro02_06 {
 
 
 
-        /*
-        HashMap<String,String> newHashMap = new HashMap<String,String>();
-
-        System.out.println("Podaj markę z dostępnych");
-        newHashMap.put("Mazda","RX7");
-        newHashMap.put("Daewoo","Tico");
-        newHashMap.put("FIAT", "Panda");
-        System.out.println(newHashMap);
-
-
-
-
-
-
-
-        Scanner scanner1 = new Scanner(System.in);
-
-
-        String input = scanner1.nextLine();
-
-
-        for
-        if (newHashMap.keySet().equals(input)){
-            System.out.println(newHashMap.get());
-
-
-            }
-        }
 
 
 
@@ -151,7 +123,9 @@ public class Pro02_06 {
 
 
 
-         }
+
+
+
 
 
 
