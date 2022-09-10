@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.Locale;
 import java.util.Scanner;
 
-import static com.company.Methods.setCounter1;
+import static com.company.Methods.*;
 
 public class Pro02_06 {
 
@@ -29,6 +29,7 @@ public class Pro02_06 {
 
 
         scan = new Scanner(System.in);
+        boolean shouldContinue = true;
 
 
         //Reading from a file
@@ -53,9 +54,20 @@ public class Pro02_06 {
         //  ArrayList storing brands already provided by a user
         ArrayList<String> usersList = new ArrayList<>();
 
+        while(shouldContinue) {
+            System.out.println("Wybierz opcje");
+            System.out.println("1. Rozpocznij gre");
+            System.out.println("2. Pokaz tabele wynikow");
+            System.out.println("3. Zakoncz gre");
+
+            Scanner sc = new Scanner(System.in);
+
+            int useChoice = sc.nextInt();
+
+            switch (useChoice) {
 
 
-
+            case 1 ->  {
 
         System.out.println("Witaj w grze, w ktorej Twoim zadaniem jest podanie jak najwiekszej liczby marek samochodow");
         System.out.println("Za kazda poprawna marke samochodu otrzymasz 5 punktow");
@@ -79,6 +91,10 @@ public class Pro02_06 {
             Scanner scanner1 = new Scanner(System.in);
             String input = scanner1.nextLine();
 
+            //Converting input to UpperCase
+            String inputConverted =  input.toUpperCase(Locale.ROOT);
+
+
             for (int i=0; i < brand1.brandslist.size(); i++ ) {
 
 
@@ -87,25 +103,25 @@ public class Pro02_06 {
                     break;
 
                     // Checking if the user gussed a brand stored in the brandslist + checking if user's input is not a duplicate
-                } else if (brand1.brandslist.get(i).contains(input.toUpperCase(Locale.ROOT)) && !usersList.contains(input.toUpperCase(Locale.ROOT))) {
+                } else if (brand1.brandslist.get(i).contains(inputConverted) && !usersList.contains(inputConverted)) {
                     System.out.println("Match!!");
                     System.out.println("Zdobywasz 5 punktow");
                     // Storing user's score
                     m1.score1.add(Methods.getResult());
                     //Adding user's input into the userList
-                    usersList.add(input.toUpperCase(Locale.ROOT));
+                    usersList.add(inputConverted);
                     break;
 
 
 
                     // Condition if a brand is correct but already given
-                } else if (brand1.brandslist.get(i).contains(input.toUpperCase(Locale.ROOT)) && usersList.contains(input.toUpperCase(Locale.ROOT))) {
+                } else if (brand1.brandslist.get(i).contains(inputConverted) && usersList.contains(inputConverted)) {
                     System.out.println("Duplikat! Ta marka zostala juz podana. Podaj inna marke");
                     break;
 
 
                     // Provding wrong answer  If condition and both else if are false printing this
-                } else if (!brand1.brandslist.get(i).contains(input) && i == brand1.brandslist.size() -1) {
+                } else if (!brand1.brandslist.get(i).contains(inputConverted) && i == brand1.brandslist.size() -1) {
                     System.out.println("Pudło");
                     break;
 
@@ -117,26 +133,23 @@ public class Pro02_06 {
                     // Suming the final resolut and printing
                     System.out.println("Ostateczny wynik w grze to: " + m1.SumFinalResult(m1.score1));
                     // Storing the final resoult in a file
-                    m1.writeResultIntoFile("C:\\Users\\user\\Desktop\\Results.txt", m1.SumFinalResult(m1.score1));
+                    writeToFileCSV(CSV_Pathname, m1.SumFinalResult(m1.score1));
                     runGame = false;
                     break;
-
-
-                    //  Code to sum and print user's score
-                    // int sum=0;
-                    //  for ( int i : m1.score1){
-                    //    sum+=i;
-                    //     System.out.println("OStateczny wynik w grze" + sum);
-
-                    // System.out.println("Ostateczny wynik w grze to: " + m1.score1.stream().mapToInt(value -> value).sum());
-
-
 
 
 
                 } else {
 
-                }
+                } }}}
+
+                case 2 ->  readResults(CSV_Pathname);
+
+                case  3 ->  {System.out.println("Wyjscie z gry Do widzenia");
+                 shouldContinue = false; }
+
+                default ->
+                    System.out.println(" Error : wybierz jedna  z powyzszych opcji");
 
 
 
