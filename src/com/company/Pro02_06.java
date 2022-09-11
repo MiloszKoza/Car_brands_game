@@ -103,7 +103,7 @@ public class Pro02_06 {
                     break;
 
                     // Checking if the user gussed a brand stored in the brandslist + checking if user's input is not a duplicate
-                } else if (brand1.brandslist.get(i).contains(inputConverted) && !usersList.contains(inputConverted)) {
+                } else if (brand1.brandslist.get(i).equals(inputConverted) && !usersList.contains(inputConverted)) {
                     System.out.println("Match!!");
                     System.out.println("Zdobywasz 5 punktow");
                     // Storing user's score
@@ -115,13 +115,13 @@ public class Pro02_06 {
 
 
                     // Condition if a brand is correct but already given
-                } else if (brand1.brandslist.get(i).contains(inputConverted) && usersList.contains(inputConverted)) {
+                } else if (brand1.brandslist.get(i).equals(inputConverted) && usersList.contains(inputConverted)) {
                     System.out.println("Duplikat! Ta marka zostala juz podana. Podaj inna marke");
                     break;
 
 
                     // Provding wrong answer  If condition and both else if are false printing this
-                } else if (!brand1.brandslist.get(i).contains(inputConverted) && i == brand1.brandslist.size() -1) {
+                } else if (!brand1.brandslist.get(i).equals(inputConverted) && i == brand1.brandslist.size() -1) {
                     System.out.println("Pudło");
                     break;
 
