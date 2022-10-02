@@ -11,7 +11,7 @@ import java.util.Locale;
 public class Methods {
     static int counter;
     static int counter1 =0;
-    public static final String CSV_Pathname = "C:\\\\\\\\Users\\\\\\\\user\\\\\\\\Downloads\\\\\\\\Baza  - Base.csv";
+    public static final String CSV_Pathname = "C:\\\\\\\\Users\\\\\\\\user\\\\\\\\Downloads\\\\\\\\Baza  - Base - Baza  - Base.csv";
 
 
     // Converting final result to String
@@ -28,6 +28,7 @@ public class Methods {
 
     LocalDate myObj = LocalDate.now();
 
+
           // Writing final result into a file
         public void writeResultIntoFile (String fileName,int data) throws IOException {
             FileWriter fw = new FileWriter(fileName, true);
@@ -38,10 +39,20 @@ public class Methods {
 
     }
 
-
+    // method to sum scored final result ( replaced by the method below)
     public int SumFinalResult (ArrayList <Integer> result) {
         int myInt= result.stream().mapToInt(value -> value).sum();
             return myInt;
+    }
+
+    // method to sum scored final result
+    public int sumFinalResult1 (ArrayList<Integer> result) {
+        int sum = 0;
+        for (int i = 0; i < result.size(); i++) {
+            sum += result.get(i);
+
+        }
+        return sum;
     }
 
     public void readFile ( String fileName, ArrayList data) throws IOException {
@@ -88,11 +99,12 @@ public class Methods {
                 // Writing final result into a CSV file
         } public static void writeToFileCSV (String fileName, int sumedFinalResult) throws IOException {
         LocalDate date = LocalDate.now();
+            String dateToString = String.valueOf(date);
             File myfile1 = new File(fileName);
             FileWriter fileWriter = new FileWriter(myfile1,true);
            CSVWriter csvWriter = new CSVWriter(fileWriter, ',', CSVWriter.NO_QUOTE_CHARACTER, CSVWriter.DEFAULT_ESCAPE_CHARACTER, CSVWriter.DEFAULT_LINE_END);
 
-           String [] myArray = { checkNumberOfRows(fileName) + "      \t \t \t" + convertIntToSting(sumedFinalResult) + "       \t " + date };
+           String [] myArray = { checkNumberOfRows(fileName), convertIntToSting(sumedFinalResult), dateToString };
 
            csvWriter.writeNext(myArray);
            csvWriter.close();
@@ -112,7 +124,7 @@ public class Methods {
         while ((line = bufferedReader.readLine()) != null) {
             String[] myArray = line.split(",");
             for (String s : myArray) {
-                System.out.printf("%-10s", s);
+                System.out.printf("%-20s", s);
             }
             System.out.println();
 

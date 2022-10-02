@@ -131,9 +131,9 @@ public class Pro02_06 {
                 } else if (input.equals("X") || input.equals("x")) {
                     System.out.println("Gra zakonczona");
                     // Suming the final resolut and printing
-                    System.out.println("Ostateczny wynik w grze to: " + m1.SumFinalResult(m1.score1));
+                    System.out.println("Ostateczny wynik w grze to: " + m1.sumFinalResult1(m1.score1));
                     // Storing the final resoult in a file
-                    writeToFileCSV(CSV_Pathname, m1.SumFinalResult(m1.score1));
+                    writeToFileCSV(CSV_Pathname, m1.sumFinalResult1(m1.score1));
                     runGame = false;
                     break;
 
@@ -145,7 +145,8 @@ public class Pro02_06 {
 
                 case 2 ->  readResults(CSV_Pathname);
 
-                case  3 ->  {System.out.println("Wyjscie z gry Do widzenia");
+                case  3 ->  {System.out.println("Wyjscie z gry");
+                             System.out.println("Do widzenia");
                  shouldContinue = false; }
 
                 default ->
