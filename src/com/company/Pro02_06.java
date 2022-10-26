@@ -69,7 +69,7 @@ public class Pro02_06 {
 
             case 1 ->  {
 
-        System.out.println("Witaj w grze, w ktorej Twoim zadaniem jest podanie jak najwiekszej liczby marek samochodow");
+        System.out.println("Witaj w grze, w ktorej Twoim zadaniem jest podanie jak najwiekszej liczby marek samochodów");
         System.out.println("Za kazda poprawna marke samochodu otrzymasz 5 punktow");
         System.out.println("Jesli nie jestes w stanie wymyslec kolejnej marki, mozesz w kazdej chwili zakonczyc gre wciskajac przycisk X na klawiaturze");
         System.out.println("");
